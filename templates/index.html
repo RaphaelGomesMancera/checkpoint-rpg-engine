@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>O Despertar do Kernel Ancestral</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #121212;
+            color: #f5f5f5;
+        }
+
+        h1 {
+            color: #ffd166;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #1e1e1e;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        th {
+            background: #2c2c2c;
+        }
+
+        .ativo {
+            color: #06d6a0;
+            font-weight: bold;
+        }
+
+        .caido {
+            color: #ef476f;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #ffd166;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+        .flash {
+            margin-top: 20px;
+            padding: 10px;
+            background: #333;
+            border-left: 4px solid #ffd166;
+        }
+    </style>
+</head>
+<body>
+    <h1>Projeto 2: O Despertar do Kernel Ancestral – RPG Engine</h1>
+    <p>Estado atual dos heróis em SQLgard:</p>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Classe</th>
+                <th>HP Atual</th>
+                <th>HP Máx</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for heroi in herois %}
+            <tr>
+                <td>{{ heroi.id_heroi }}</td>
+                <td>{{ heroi.nome }}</td>
+                <td>{{ heroi.classe }}</td>
+                <td>{{ heroi.hp_atual }}</td>
+                <td>{{ heroi.hp_max }}</td>
+                <td class="{{ 'ativo' if heroi.status == 'ATIVO' else 'caido' }}">
+                    {{ heroi.status }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form action="/processar" method="post">
+        <button type="submit">Próximo Turno</button>
+    </form>
+</body>
+</html>
