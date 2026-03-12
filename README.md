@@ -47,27 +47,25 @@ Simular a passagem de turnos de um RPG, onde uma névoa venenosa causa dano em t
 1. Criar e ativar ambiente virtual  
 2. Instalar dependências:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 3. Configurar o arquivo `.env`:
 
-DB_USER=rm562279
-DB_PASSWORD=fiap2026
-DB_DSN=oracle.fiap.com.br:1521/ORCL
+`DB_USER=seu_usuario`  
+`DB_PASSWORD=sua_senha`  
+`DB_DSN=seu_host:1521/seu_service_name`
 
 4. Executar:
 
-python app.py
+`python app.py`
 
 5. Acessar:
 
-http://127.0.0.1:5000
+`http://127.0.0.1:5000`
 
 ## Banco de dados
 A tabela utilizada no projeto é `TB_HEROIS`.
 
 ## Autores
 - Raphael Gomes Mancera
-rm562279
 - Guilherme de Andrade Martini
-rm562279
